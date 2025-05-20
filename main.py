@@ -21,11 +21,11 @@ def draw(img,buttonList, activeButton=None ,clickedButton=None):
         w, h = button.size
 
         if button == clickedButton:
-            color = (0, 255, 0)  # Green for clicked
+            color = (0, 0, 0)  # Black for clicked
         elif button == activeButton:
-            color = (175, 0, 175)  # Dark purple for active
+            color = (200, 200, 200)  # Light Gray for active
         else:
-            color = (255, 0, 255)  # Purple for inactive
+            color = (100, 100, 100)  # Dark Gray for inactive
         cv2.rectangle(img, button.pos, (x + w, y + h),color, cv2.FILLED)  # Rectangular button-for the keys
         cv2.putText(img, button.text, (x + 20, y + 65), cv2.FONT_HERSHEY_SIMPLEX, 2, (255, 255, 255),
                     3)  # PUT TEXT INSIDE TEH RECTANGLE
@@ -86,7 +86,7 @@ while True:
                         if length < 20:  # Adjust threshold as needed
                             clickedButton = button # Mark this button as clicked
                             finalText+=button.text
-                            sleep(0.25)
+                            sleep(0.15)
 
 
             cv2.rectangle(img, (50,350), (700,450), (175,0,175), cv2.FILLED)  # Rectangular button-for the keys
